@@ -56,6 +56,9 @@ Frequency: High (brute-force pattern)
  Rule id: 5551
  Level 10
  PAM: Multiple failed logins in a small period of time.
+
+ NOTE: Severity rationale
+ Although the detection rule has a high severity level (10), the incident was classified as Medium because no successful     authentication or post-compromise activity was observed.
   
  Tactic: Credential Access
  Technique: Brute Force
@@ -75,6 +78,28 @@ Frequency: High (brute-force pattern)
 Manager side
 
 /var/ossec/logs/alerts/alerts.json
+
+## Key Alert Fields Explained
+
+The following fields from the Wazuh alert were used to validate and classify the incident:
+
+srcip
+Source IP address initiating the SSH authentication attempts. Used to identify the attacker and assess whether the activity originates from a trusted or untrusted network.
+
+dstuser
+Targeted username. In this case root, indicating an attempt against a privileged account, increasing the risk level of the activity.
+
+rule.id
+Identifier of the Wazuh detection rule that triggered the alert (5551). Used to understand the detection logic and associated severity.
+
+frequency
+Number of matching events required within a defined time window for the rule to trigger. Confirms that the alert was generated due to repeated failures rather than a single authentication error.
+
+firedtimes
+Number of times the rule was triggered during the attack window. Indicates persistence and repeated brute-force behavior.
+
+location
+Log source from which the event originated (journald). Confirms the operating system-level origin of the SSH authentication failures.
 
 JSON
 
