@@ -42,12 +42,23 @@ No successful authentication or post-compromise activity was observed.
 - **Escalated to:** SOC L2 / Security Engineering
 - **Reason:** Repeated brute-force attempts against a privileged account
 - **Evidence provided:** Wazuh alerts, authentication logs, timeline
+
 ## Recommended Mitigations
 
 - Disable direct SSH login for the `root` account
 - Enforce key-based SSH authentication
 - Implement rate-limiting or brute-force protection (e.g., Fail2Ban)
 - Continue monitoring SSH authentication events
+
+## False Positive Considerations
+
+The following benign scenarios were considered and ruled out:
+
+- Authorized administrative activity
+- Internal vulnerability scanning
+- User password mistyping
+
+The high frequency, repeated failures targeting a privileged account from a single non-trusted IP were inconsistent with normal behavior and aligned with brute-force automation.
 
 ## Final Assessment
 
