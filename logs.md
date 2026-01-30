@@ -14,12 +14,13 @@ This section lists the log sources used during analysis.
  `/var/ossec/logs/ossec.log`
 
 - Wazuh agent internal log.
-- Shows how the agent parses, tags, and forwards SSH-related events to the manager.
+- Shows how the Wazuh agent parses, normalizes, and forwards SSH-related events to the manager.
 
  `/var/ossec/logs/archives/archives.json`
 
 - Local archive of events processed by the agent.
 - Used to validate that SSH events were correctly captured before transmission.
+
 ## Wazuh Manager
 
  `/var/ossec/logs/archives/archives.json`
@@ -30,7 +31,7 @@ This section lists the log sources used during analysis.
  `/var/ossec/logs/ossec.log`
 
 - Wazuh manager internal processing log.
-- Confirms rule execution, alert generation, and event handling.
+- Confirms rule execution, correlation logic, and alert generation performed centrally by the Wazuh Manager.
  
  `/var/ossec/logs/alerts/alerts.json`
 
