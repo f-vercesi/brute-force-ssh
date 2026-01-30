@@ -6,6 +6,9 @@ This section documents normal SSH authentication behavior on the target system b
 
 **Evidence:**
 
+Observed time window:
+Baseline activity was observed over a 20-minute period prior to attack execution to establish normal SSH authentication behavior.
+
 Sample failed SSH login attempts from an internal host (`soc-server`) using an invalid user (`wronguser`).
 Low frequency and non-repetitive behavior consistent with baseline activity.  
 
@@ -51,5 +54,4 @@ Attempts per minute: < 5
 Source IP diversity: Low 
 Repeated failures same user: No
  
-This baseline is used to clearly distinguish malicious brute-force behavior
-
+This baseline enables differentiation between benign user authentication errors and malicious automated activity such as brute-force attacks.
